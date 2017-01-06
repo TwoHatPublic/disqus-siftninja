@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<title>Disqus</title>
+    <meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="keywords" content="">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="msapplication-tap-highlight" content="no" />
+	
+	<link rel="stylesheet" href="assets/css/normalize.css">
+	<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<section>
+    <div class="layout-grid-container">
+        <div class="row-center">
+            <div class="col-6">
+                <h1>Nobody Beats The Wiz!</h1>
+            </div>
+        </div>
+        <div class="row-center">
+            <div class="col-6">
+                <h2>“I’m the wiz! And nobody beats me!”</h2>
+                <h3>Synergistically seize parallel human capital after parallel catalysts for change. Intrinsicly impact integrated networks through future-proof strategic theme.</h3>
+                
+                <p>Proactively initiate 2.0 e-tailers without 24/365 customer service. Continually initiate ethical e-business after distributed e-tailers. Efficiently build end-to-end e-business vis-a-vis compelling partnerships. Rapidiously customize sustainable convergence whereas long-term high-impact mindshare. Efficiently exploit state of the art opportunities rather than global "outside the box" thinking.</p>
+                <p>Globally revolutionize virtual experiences and visionary sources. Progressively benchmark vertical mindshare before e-business portals. Energistically deploy bleeding-edge services via installed base networks. Progressively transform visionary e-markets before process-centric meta-services. Authoritatively provide access to backend materials after multimedia based value.</p>
+                <p>Enthusiastically empower customized catalysts for change vis-a-vis seamless relationships. Dynamically evolve scalable solutions via top-line models. Assertively actualize cooperative experiences for standards compliant best practices. Efficiently transition interdependent vortals vis-a-vis equity invested mindshare. Continually myocardinate pandemic innovation without reliable information.</p>
+                <p>Uniquely synergize bleeding-edge web services with backward-compatible users. Dynamically streamline plug-and-play scenarios vis-a-vis professional e-tailers. Conveniently productivate holistic manufactured products via transparent ideas. Seamlessly restore orthogonal experiences after adaptive human capital. Continually empower visionary technology before best-of-breed markets.</p>
+                <p>Dramatically cultivate principle-centered relationships through stand-alone platforms. Continually enhance cost effective niche markets whereas business users. Holisticly disseminate best-of-breed vortals and user-centric infomediaries. Appropriately orchestrate just in time infomediaries after multimedia based manufactured products. Holisticly architect sustainable services for focused catalysts for change.</p>
+                <p>Intrinsicly architect cross-media niches after innovative best practices. Rapidiously promote dynamic ROI vis-a-vis orthogonal initiatives. Phosfluorescently restore intuitive supply chains without multimedia based deliverables. Completely mesh exceptional results through market-driven content. Authoritatively unleash impactful content after open-source opportunities.</p>
+                <p>Appropriately extend premium relationships through strategic information. Competently revolutionize out-of-the-box channels before empowered e-business. Phosfluorescently grow alternative leadership skills after enabled growth strategies. Dramatically streamline one-to-one experiences before enterprise solutions. Credibly myocardinate e-business schemas rather than cutting-edge e-commerce.</p>
+                <p>Quickly incentivize customized markets whereas turnkey content. Quickly integrate timely resources for integrated internal or "organic" sources. Intrinsicly reinvent turnkey methodologies and multifunctional data. Efficiently redefine transparent results for multifunctional catalysts for change. Dramatically whiteboard low-risk high-yield content and client-centric e-markets.</p>
+                <p>Seamlessly formulate proactive resources before mission-critical collaboration and idea-sharing. Collaboratively provide access to ubiquitous portals through cooperative potentialities. Distinctively exploit flexible.</p>
+            </div>
+            <div class="col-6">
+                <h2>Comment on this article:</h2>
+                <div id="disqus_thread"></div>
+                <script>
+                
+                /**
+                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                /*
+                var disqus_config = function () {
+                this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                
+                */
+                 var disqus_config = function () {
+                    this.page.url = "http://disqus.dev/";
+                    this.page.identifier = "xxyyzz";
+                    
+                    this.callbacks.onNewComment = [function(e) { 
+                        
+                        //console.log(e)
+                        
+                        var _id = e.id,
+                            _message = e.text;
+
+                        function apiDISQUS(endpoint, str, refID) {
+                            
+                            var _url = "https://twohat.com/api/sift-ninja/disqus/?";
+                                _url += "&endpoint=" + endpoint;
+                                _url += "&post=" + refID;
+                                _url += "&message=" + escape(str);
+                            
+                            Utilities.getJSON.process({
+                                url : _url,
+                                callBack : function(response){
+                                    console.log(response);
+                                    setTimer(function(){
+                                        DISQUS.reset({
+                                            reload: true
+                                        });
+                                    }, 1500);
+                                    
+                                }
+			                });
+                        }
+                        
+                        SiftNinja.services.classify(_message, "", function(_arr, _hashes, response){
+                            if (response.response == false) {
+                                apiDISQUS("update", _hashes, _id);
+                            } else {
+                                apiDISQUS("update", _message, _id);
+                            }
+                        });                    
+                    }];
+                };
+                (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = '//disqus-dev-jk.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+               
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                                
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- javascript -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/jquery.min.js"><\/script>')</script>
+<script src="assets/js/jk.utilities.js"></script>
+<script src="assets/js/sn.js"></script>
+</body>
+</html>
+
+

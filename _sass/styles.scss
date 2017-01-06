@@ -1,0 +1,13 @@
+@import "compass";
+@import "vars";
+@import "layout-grid";
+
+/* DEFAULTS */
+
+body {
+    background: #fff;
+    color: $black;
+    font-family: "Helvetica", Arial, sans-serif;    
+    font-size: 1.12em;
+    line-height: 1.66em;
+}

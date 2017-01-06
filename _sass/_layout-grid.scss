@@ -1,0 +1,94 @@
+.layout-grid-container {
+	position: relative;
+	max-width: $screen-md;	
+	margin: 0 auto;
+	z-index: 1;
+	> section {
+			margin: $spacer 0;
+	}
+	@media screen and (min-width: $screen-xl) {
+		max-width: $screen-lg;
+		> section {
+			margin: $spacer 0;
+		}
+	}
+	@media screen and (min-width: $screen-lg) {
+		max-width: 1300px;
+	}
+	@media screen and (min-width: $screen-md) {
+		padding: $spacer $spacer;
+	}
+	@media screen and (min-width: $screen-sm) {
+		padding: $spacer $spacer/2;
+	}
+}
+.layout-grid-container-fluid {
+	padding: 0 $spacer;	
+}
+
+[class*="row"] {
+	position: relative;	
+
+	[class*="col"] {
+		position: relative;
+		padding: $spacer/2;
+		
+	}
+	@media screen and (min-width: $screen-md) {
+		display: -ms-flexbox; //IE 10
+		display: flex;
+		//-ms-flexbox: flex;
+		flex-direction:row;
+		
+		[class*="col"] {
+			width: 50%; // default
+			padding: $spacer/2 0;
+			//align-self: flex-start;
+			&.divider {
+				border-right: 2px solid rgba($black, 0.1);
+			}
+			@for $i from 1 through 12 {
+				&[class*="offset-#{$i}"] {
+					margin-left: calc(#{$spacer/2} + #{(100% / (12/$i))});
+				}
+			}
+		}
+		@for $i from 1 through 12 {
+			[class*="col-#{$i}"] {
+				width: calc(#{100% / (12/$i)} - #{$spacer/2});
+				margin: 0 $spacer/2 0 0; // margin:0 auto; for magic
+				@media screen and (min-width: $screen-lg) {
+					width: calc(#{100% / (12/$i)} - #{$spacer});
+					margin: 0 $spacer/2 0;
+				}
+
+			}
+		}
+	}
+	&[class*="-center"] {
+		// this breaks grid... consider an .offset
+		@media screen and (min-width: $screen-md) {
+			[class*="col"] {
+				 margin:0 auto;
+			}
+		}
+	}
+}
+
+*.no-flexbox { //modernizer
+	[class*="row"] {
+		@include clearfix;	
+		&[class*="-center"] {
+			[class*="col"] {
+				float: none;
+				 margin:0 auto;
+			}
+		}
+	}
+	[class*="col"] {
+		float: left;	
+	}
+}
+
+
+
