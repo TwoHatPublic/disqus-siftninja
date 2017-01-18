@@ -14,7 +14,7 @@ var SiftNinja = (function ($) {
             var payload = {
                 "async": true,
                 "crossDomain": true,
-                "url": "https://twohat.com/api/sift-ninja/marketing/",
+                "url": "https://twohat.com/api/sift-ninja/disqus/ninja/",
                 "method": "POST",
                 "processData": false,
                 "data": JSON.stringify(body)
